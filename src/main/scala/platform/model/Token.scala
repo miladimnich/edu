@@ -1,9 +1,6 @@
 package platform.model
 
 class Token(var amount: Int, val symb: String) {
-  //  def addAmount(value: Int): Unit = {
-  //    this.amount += value
-  //  }
 
   def addAmount(value: Token): Token = {
     if (this.symb == value.symb) {

@@ -6,6 +6,11 @@ class Human(val id: Int,
 
   private var token: Token = new Token(0, "MP")
 
+  def addToken(t: Token): Unit = {
+    token = token.addAmount(t)
+  }
+
+
   def setToken(t: Token): Unit = {
     token = t
   }

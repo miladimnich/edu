@@ -1,14 +1,21 @@
 package platform.model
 
- 
+import platform.enums.CourseType
+
+import scala.collection.mutable
+
+
 class Student(id: Int, name: String, address: Address) extends Human(id, name, address) {
-  
-  private var _grade: Int = 0
+
+  val gradesPerCourse: mutable.Map[CourseType, mutable.ListBuffer[Int]] = mutable.Map()
 
 
-
-
-  def assignGrade(grade: Int): Unit = {
-    _grade = grade
+  def assignGrade(courseType: CourseType, grade: Int): Unit = {
+    val grades = gradesPerCourse.getOrElseUpdate(courseType, mutable.ListBuffer())
+    grades += grade
   }
+
+ 
+
+  override def toString: String = s"Student(id=$id, name=$name, address = $address, token = $getToken)"
 }
