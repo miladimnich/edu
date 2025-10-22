@@ -9,8 +9,5 @@ ThisBuild / scalaVersion := "3.3.6"
 lazy val root = (project in file("."))
   .settings(
     name := "TokenProject",
-  libraryDependencies += "com.lihaoyi" %% "ujson" % "4.3.2",
-  //  libraryDependencies += "com.typesafe.play" %% "play-json" % "2.10.7"
-
-
+    libraryDependencies += "com.lihaoyi" %% "ujson" % "4.4.0"
   )

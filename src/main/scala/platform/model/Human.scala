@@ -1,5 +1,7 @@
 package platform.model
 
+import platform.finance.{Exchange, Token, Trading}
+
 class Human(val id: Int,
             val name: String,
             val address: Address) extends Trading {

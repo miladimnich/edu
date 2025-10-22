@@ -1,4 +1,6 @@
-package platform.model
+package platform.finance
+
+import platform.finance.{Token, Trading}
 
 object Exchange extends Trading {
   private var fiat: Double = _
@@ -15,20 +17,23 @@ object Exchange extends Trading {
     }
   }
 
-  def getTokenPrice(): Double = token.amount / this.fiat
+  private def getTokenPrice: Double = token.amount / this.fiat
 
   def get(): (Double, String) = (fiat, token.Token_inf())
 
   override def sell(value: Token): Unit = {
     token = token.addAmount(value)
-    fiat -= value.amount * getTokenPrice()
+    fiat -= value.amount * getTokenPrice
   }
 
   override def buy(value: Token): Unit = {
     if (token.amount >= value.amount) {
       token = token.substructAmount(value)
-      fiat += value.amount * getTokenPrice()
+      fiat += value.amount * getTokenPrice
     }
+  }
 
+  def printExchangeBalance(): Unit = {
+    println(f"Exchange balance: Fiat = $fiat%.2f, Tokens = ${token.Token_inf()}")
   }
 }

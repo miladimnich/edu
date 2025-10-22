@@ -1,6 +1,6 @@
-package platform.model
+package platform.finance
 
-class Token(var amount: Int, val symb: String) {
+class Token(var amount: Double, val symb: String) {
 
   def addAmount(value: Token): Token = {
     if (this.symb == value.symb) {
@@ -18,6 +18,8 @@ class Token(var amount: Int, val symb: String) {
     }
   }
 
-  def Token_inf(): String = "Amount: " + amount + symb
+
+  def Token_inf(): String = f"Amount: $amount%.2f $symb"
+  
   override def toString: String = s"Token(amount=$amount, symb=$symb)"
 }
